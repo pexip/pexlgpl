@@ -1,0 +1,9 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: @NAME@ 
+Description: @NAME@
+Version: 1.0
+Requires: @REQUIRES@
