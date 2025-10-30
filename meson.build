@@ -122,7 +122,7 @@ gst_plugin_list = [
   [ ['gstsiren'] ],
   [ ['gstvideoparsersbad'] ],
   [ ['gstvideosignal'] ],
-  [ ['gstsctp'] ],
+  [ ['gstdcsctp'] ],
   [ ['gstlibav'] ],
   [ ['gstaes'], gst_aes_dep.found() ],
   [ ['gstspeex'], (not is_windows and not is_arm and not is_cross and not is_darwin) ],
