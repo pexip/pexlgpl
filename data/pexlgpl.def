@@ -6804,12 +6804,10 @@ EXPORTS
  gst_aggregator_simple_get_next_time
  gst_aggregator_start_time_selection_get_type
  gst_aggregator_update_segment
- gst_base_idle_src_alloc_buffer
  gst_base_idle_src_get_allocator
  gst_base_idle_src_get_buffer_pool
  gst_base_idle_src_get_do_timestamp
  gst_base_idle_src_get_type
- gst_base_idle_src_new_segment
  gst_base_idle_src_query_latency
  gst_base_idle_src_set_caps
  gst_base_idle_src_set_do_timestamp
