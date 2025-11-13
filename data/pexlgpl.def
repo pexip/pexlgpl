@@ -8032,6 +8032,7 @@ EXPORTS
  gst_rtp_base_depayload_set_source_info_enabled
  gst_rtp_base_payload_allocate_output_buffer
  gst_rtp_base_payload_get_source_count
+ gst_rtp_base_payload_get_extension_header_size
  gst_rtp_base_payload_get_type
  gst_rtp_base_payload_is_filled
  gst_rtp_base_payload_is_source_info_enabled
