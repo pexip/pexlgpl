@@ -1863,7 +1863,6 @@ EXPORTS
  glib_minor_version
  glib_on_error_halt
  glib_pgettext
- myInvalidParameterHandler
 ; C:\pexip\media\.build\windows-amd64\__install__\bin\gio-2.0-0.dll
  g_action_activate
  g_action_change_state
