@@ -873,6 +873,7 @@ EXPORTS
  g_once_impl
  g_once_init_enter
  g_once_init_enter_impl
+ g_once_init_enter_pointer
  g_once_init_leave
  g_once_init_leave_pointer
  g_open
