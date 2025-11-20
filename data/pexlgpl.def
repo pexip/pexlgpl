@@ -60,6 +60,7 @@ EXPORTS
  g_ascii_xdigit_value
  g_assert_warning
  g_assertion_message
+ g_assertion_message_cmpint
  g_assertion_message_cmpnum
  g_assertion_message_cmpstr
  g_assertion_message_cmpstrv
@@ -873,6 +874,7 @@ EXPORTS
  g_once_init_enter
  g_once_init_enter_impl
  g_once_init_leave
+ g_once_init_leave_pointer
  g_open
  g_option_context_add_group
  g_option_context_add_main_entries
