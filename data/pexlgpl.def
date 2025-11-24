@@ -9493,7 +9493,6 @@ EXPORTS
  _pango_win32_copy_cmap
  _pango_win32_font_get_hfont
  _pango_win32_font_get_type
- _pango_win32_font_map_get_type
  _pango_win32_fontmap_cache_remove
  _pango_win32_get_display_dc
  _pango_win32_make_matching_logfontw
