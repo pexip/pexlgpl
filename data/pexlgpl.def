@@ -4839,10 +4839,8 @@ EXPORTS
  gst_bin_get_by_interface
  gst_bin_get_by_name
  gst_bin_get_by_name_recurse_up
- gst_bin_get_hash_level
  gst_bin_get_suppressed_flags
  gst_bin_get_type
- gst_bin_get_using_hash
  gst_bin_iterate_all_by_element_factory_name
  gst_bin_iterate_all_by_interface
  gst_bin_iterate_elements
@@ -4854,7 +4852,6 @@ EXPORTS
  gst_bin_recalculate_latency
  gst_bin_remove
  gst_bin_remove_many
- gst_bin_set_hash_level
  gst_bin_set_suppressed_flags
  gst_bin_sync_children_states
  gst_bitmask_get_type
@@ -5384,7 +5381,6 @@ EXPORTS
  gst_element_get_current_clock_time
  gst_element_get_current_running_time
  gst_element_get_factory
- gst_element_get_hash_level
  gst_element_get_metadata
  gst_element_get_pad_template
  gst_element_get_pad_template_list
@@ -5393,7 +5389,6 @@ EXPORTS
  gst_element_get_state
  gst_element_get_static_pad
  gst_element_get_type
- gst_element_get_using_hash
  gst_element_is_locked_state
  gst_element_iterate_pads
  gst_element_iterate_sink_pads
@@ -5428,7 +5423,6 @@ EXPORTS
  gst_element_set_bus
  gst_element_set_clock
  gst_element_set_context
- gst_element_set_hash_level
  gst_element_set_locked_state
  gst_element_set_start_time
  gst_element_set_state
