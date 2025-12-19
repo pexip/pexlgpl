@@ -1,5 +1,5 @@
-; Generated on 08/18/2025 12:36:38
-; Command line: powershell  C:\pexip\media\media\lgpl\tools\gen_pexlgpl_def.ps1 -path C:\pexip\media\.build\windows-amd64\__install__ -files glib,gio,gmodule,gobject,nice,json-glib,gstreamer,gstfft,gstbase,gstaudio,gstvideo,gstrtp,gstnet,gstsctp,gstapp,gstsdp,gstcodecparsers,gstpbutils,z,pexrtmpserver,pango,pangocairo,pangowin32,cairo,cairo-gobject,jpeg,gstcheck,gstrtspserver  -out C:\pexip\media\media\lgpl\data\pexlgpl.def
+; Generated on 12/19/2025 12:05:32
+; Command line: powershell   C:\pexip\media\media\lgpl\tools\gen_pexlgpl_def.ps1 -path C:\pexip\media\.build\windows-amd64\__install__ -files glib,gio,gmodule,gobject,nice,json-glib,gstreamer,gstfft,gstbase,gstaudio,gstvideo,gstrtp,gstnet,gstsctp,gstapp,gstsdp,gstcodecparsers,gstpbutils,z,pexrtmpserver,pango,pangocairo,pangowin32,cairo,cairo-gobject,jpeg,gstcheck,gstrtspserver  -out C:\pexip\media\media\lgpl\data\pexlgpl.def
 
 EXPORTS
 ; C:\pexip\media\.build\windows-amd64\__install__\bin\glib-2.0-0.dll
@@ -10,6 +10,7 @@ EXPORTS
  g_aligned_alloc
  g_aligned_alloc0
  g_aligned_free
+ g_aligned_free_sized
  g_allocator_free
  g_allocator_new
  g_array_append_vals
@@ -19,6 +20,8 @@ EXPORTS
  g_array_get_element_size
  g_array_insert_vals
  g_array_new
+ g_array_new_take
+ g_array_new_take_zero_terminated
  g_array_prepend_vals
  g_array_ref
  g_array_remove_index
@@ -135,11 +138,13 @@ EXPORTS
  g_base64_encode_step
  g_basename
  g_bit_lock
+ g_bit_lock_and_get
  g_bit_nth_lsf
  g_bit_nth_msf
  g_bit_storage
  g_bit_trylock
  g_bit_unlock
+ g_bit_unlock_and_set
  g_blow_chunks
  g_bookmark_file_add_application
  g_bookmark_file_add_group
@@ -318,7 +323,9 @@ EXPORTS
  g_date_get_month
  g_date_get_sunday_week_of_year
  g_date_get_sunday_weeks_in_year
+ g_date_get_week_of_year
  g_date_get_weekday
+ g_date_get_weeks_in_year
  g_date_get_year
  g_date_is_first_of_month
  g_date_is_last_of_month
@@ -377,7 +384,9 @@ EXPORTS
  g_date_time_new_from_timeval_local
  g_date_time_new_from_timeval_utc
  g_date_time_new_from_unix_local
+ g_date_time_new_from_unix_local_usec
  g_date_time_new_from_unix_utc
+ g_date_time_new_from_unix_utc_usec
  g_date_time_new_local
  g_date_time_new_now
  g_date_time_new_now_local
@@ -388,6 +397,7 @@ EXPORTS
  g_date_time_to_timeval
  g_date_time_to_timezone
  g_date_time_to_unix
+ g_date_time_to_unix_usec
  g_date_time_to_utc
  g_date_time_unref
  g_date_to_struct_tm
@@ -406,7 +416,9 @@ EXPORTS
  g_dir_open_utf8
  g_dir_read_name
  g_dir_read_name_utf8
+ g_dir_ref
  g_dir_rewind
+ g_dir_unref
  g_direct_equal
  g_direct_hash
  g_dngettext
@@ -453,6 +465,7 @@ EXPORTS
  g_format_size_full
  g_fprintf
  g_free
+ g_free_sized
  g_freopen
  g_fsync
  g_get_application_name
@@ -496,7 +509,9 @@ EXPORTS
  g_hash_table_foreach_steal
  g_hash_table_get_keys
  g_hash_table_get_keys_as_array
+ g_hash_table_get_keys_as_ptr_array
  g_hash_table_get_values
+ g_hash_table_get_values_as_ptr_array
  g_hash_table_insert
  g_hash_table_iter_get_hash_table
  g_hash_table_iter_init
@@ -516,6 +531,8 @@ EXPORTS
  g_hash_table_size
  g_hash_table_steal
  g_hash_table_steal_all
+ g_hash_table_steal_all_keys
+ g_hash_table_steal_all_values
  g_hash_table_steal_extended
  g_hash_table_unref
  g_hmac_copy
@@ -704,6 +721,7 @@ EXPORTS
  g_locale_to_utf8
  g_log
  g_log_default_handler
+ g_log_get_always_fatal
  g_log_get_debug_enabled
  g_log_remove_handler
  g_log_set_always_fatal
@@ -718,6 +736,7 @@ EXPORTS
  g_log_structured_standard
  g_log_variant
  g_log_writer_default
+ g_log_writer_default_set_debug_domains
  g_log_writer_default_set_use_stderr
  g_log_writer_default_would_drop
  g_log_writer_format_fields
@@ -725,6 +744,7 @@ EXPORTS
  g_log_writer_journald
  g_log_writer_standard_streams
  g_log_writer_supports_color
+ g_log_writer_syslog
  g_logv
  g_lstat
  g_main_context_acquire
@@ -784,6 +804,7 @@ EXPORTS
  g_markup_parse_context_free
  g_markup_parse_context_get_element
  g_markup_parse_context_get_element_stack
+ g_markup_parse_context_get_offset
  g_markup_parse_context_get_position
  g_markup_parse_context_get_user_data
  g_markup_parse_context_new
@@ -909,6 +930,21 @@ EXPORTS
  g_option_group_set_translation_domain
  g_option_group_unref
  g_parse_debug_string
+ g_path_buf_clear
+ g_path_buf_clear_to_path
+ g_path_buf_copy
+ g_path_buf_equal
+ g_path_buf_free
+ g_path_buf_free_to_path
+ g_path_buf_init
+ g_path_buf_init_from_path
+ g_path_buf_new
+ g_path_buf_new_from_path
+ g_path_buf_pop
+ g_path_buf_push
+ g_path_buf_set_extension
+ g_path_buf_set_filename
+ g_path_buf_to_path
  g_path_get_basename
  g_path_get_dirname
  g_path_is_absolute
@@ -923,8 +959,11 @@ EXPORTS
  g_pattern_spec_match_string
  g_pattern_spec_new
  g_pointer_bit_lock
+ g_pointer_bit_lock_and_get
+ g_pointer_bit_lock_mask_ptr
  g_pointer_bit_trylock
  g_pointer_bit_unlock
+ g_pointer_bit_unlock_and_set
  g_poll
  g_prefix_error
  g_prefix_error_literal
@@ -949,8 +988,12 @@ EXPORTS
  g_ptr_array_insert
  g_ptr_array_is_null_terminated
  g_ptr_array_new
+ g_ptr_array_new_from_array
+ g_ptr_array_new_from_null_terminated_array
  g_ptr_array_new_full
  g_ptr_array_new_null_terminated
+ g_ptr_array_new_take
+ g_ptr_array_new_take_null_terminated
  g_ptr_array_new_with_free_func
  g_ptr_array_ref
  g_ptr_array_remove
@@ -962,6 +1005,8 @@ EXPORTS
  g_ptr_array_set_size
  g_ptr_array_sized_new
  g_ptr_array_sort
+ g_ptr_array_sort_values
+ g_ptr_array_sort_values_with_data
  g_ptr_array_sort_with_data
  g_ptr_array_steal
  g_ptr_array_steal_index
@@ -1051,6 +1096,7 @@ EXPORTS
  g_ref_count_inc
  g_ref_count_init
  g_ref_string_acquire
+ g_ref_string_equal
  g_ref_string_length
  g_ref_string_new
  g_ref_string_new_intern
@@ -1169,7 +1215,6 @@ EXPORTS
  g_set_prgname
  g_set_print_handler
  g_set_printerr_handler
- g_set_user_dirs
  g_setenv
  g_setenv_utf8
  g_shell_error_quark
@@ -1216,10 +1261,12 @@ EXPORTS
  g_slist_sort
  g_slist_sort_with_data
  g_snprintf
+ g_sort_array
  g_source_add_child_source
  g_source_add_poll
  g_source_attach
  g_source_destroy
+ g_source_dup_context
  g_source_get_can_recurse
  g_source_get_context
  g_source_get_current_time
@@ -1330,10 +1377,12 @@ EXPORTS
  g_string_chunk_insert_const
  g_string_chunk_insert_len
  g_string_chunk_new
+ g_string_copy
  g_string_down
  g_string_equal
  g_string_erase
  g_string_free
+ g_string_free_and_steal
  g_string_free_to_bytes
  g_string_hash
  g_string_insert
@@ -1342,6 +1391,7 @@ EXPORTS
  g_string_insert_unichar
  g_string_new
  g_string_new_len
+ g_string_new_take
  g_string_overwrite
  g_string_overwrite_len
  g_string_prepend
@@ -1378,7 +1428,9 @@ EXPORTS
  g_strv_builder_end
  g_strv_builder_new
  g_strv_builder_ref
+ g_strv_builder_take
  g_strv_builder_unref
+ g_strv_builder_unref_to_strv
  g_strv_contains
  g_strv_equal
  g_strv_length
@@ -1394,6 +1446,7 @@ EXPORTS
  g_test_config_vars
  g_test_create_case
  g_test_create_suite
+ g_test_disable_crash_reporting
  g_test_expect_message
  g_test_fail
  g_test_fail_printf
@@ -1439,6 +1492,7 @@ EXPORTS
  g_test_trap_has_passed
  g_test_trap_reached_timeout
  g_test_trap_subprocess
+ g_test_trap_subprocess_with_envp
  g_thread_create
  g_thread_create_full
  g_thread_error_quark
@@ -1446,6 +1500,7 @@ EXPORTS
  g_thread_foreach
  g_thread_functions_for_glib_use
  g_thread_get_initialized
+ g_thread_get_name
  g_thread_gettime
  g_thread_init_glib
  g_thread_join
@@ -1495,6 +1550,7 @@ EXPORTS
  g_timeout_add_once
  g_timeout_add_seconds
  g_timeout_add_seconds_full
+ g_timeout_add_seconds_once
  g_timeout_funcs
  g_timeout_source_new
  g_timeout_source_new_seconds
@@ -1656,6 +1712,7 @@ EXPORTS
  g_utf8_to_ucs4
  g_utf8_to_ucs4_fast
  g_utf8_to_utf16
+ g_utf8_truncate_middle
  g_utf8_validate
  g_utf8_validate_len
  g_utime
@@ -1668,6 +1725,7 @@ EXPORTS
  g_variant_builder_close
  g_variant_builder_end
  g_variant_builder_init
+ g_variant_builder_init_static
  g_variant_builder_new
  g_variant_builder_open
  g_variant_builder_ref
@@ -1896,6 +1954,7 @@ EXPORTS
  g_action_map_get_type
  g_action_map_lookup_action
  g_action_map_remove_action
+ g_action_map_remove_action_entries
  g_action_name_is_valid
  g_action_parse_detailed_name
  g_action_print_detailed_name
@@ -1957,6 +2016,7 @@ EXPORTS
  g_application_add_option_group
  g_application_bind_busy_property
  g_application_command_line_create_file_for_arg
+ g_application_command_line_done
  g_application_command_line_get_arguments
  g_application_command_line_get_cwd
  g_application_command_line_get_environ
@@ -1968,7 +2028,9 @@ EXPORTS
  g_application_command_line_get_type
  g_application_command_line_getenv
  g_application_command_line_print
+ g_application_command_line_print_literal
  g_application_command_line_printerr
+ g_application_command_line_printerr_literal
  g_application_command_line_set_exit_status
  g_application_flags_get_type
  g_application_get_application_id
@@ -1982,6 +2044,7 @@ EXPORTS
  g_application_get_is_remote
  g_application_get_resource_base_path
  g_application_get_type
+ g_application_get_version
  g_application_hold
  g_application_id_is_valid
  g_application_mark_busy
@@ -2001,6 +2064,7 @@ EXPORTS
  g_application_set_option_context_parameter_string
  g_application_set_option_context_summary
  g_application_set_resource_base_path
+ g_application_set_version
  g_application_unbind_busy_property
  g_application_unmark_busy
  g_application_withdraw_notification
@@ -2092,6 +2156,7 @@ EXPORTS
  g_content_type_set_mime_dirs
  g_content_types_get_registered
  g_converter_convert
+ g_converter_convert_bytes
  g_converter_flags_get_type
  g_converter_get_type
  g_converter_input_stream_get_converter
@@ -2205,6 +2270,7 @@ EXPORTS
  g_dbus_connection_new_sync
  g_dbus_connection_register_object
  g_dbus_connection_register_object_with_closures
+ g_dbus_connection_register_object_with_closures2
  g_dbus_connection_register_subtree
  g_dbus_connection_remove_filter
  g_dbus_connection_send_message
@@ -2280,6 +2346,7 @@ EXPORTS
  g_dbus_message_copy
  g_dbus_message_flags_get_type
  g_dbus_message_get_arg0
+ g_dbus_message_get_arg0_path
  g_dbus_message_get_body
  g_dbus_message_get_byte_order
  g_dbus_message_get_destination
@@ -2549,6 +2616,7 @@ EXPORTS
  g_file_build_attribute_list_for_copy
  g_file_copy
  g_file_copy_async
+ g_file_copy_async_with_closures
  g_file_copy_attributes
  g_file_copy_finish
  g_file_copy_flags_get_type
@@ -2612,6 +2680,7 @@ EXPORTS
  g_file_info_get_attribute_boolean
  g_file_info_get_attribute_byte_string
  g_file_info_get_attribute_data
+ g_file_info_get_attribute_file_path
  g_file_info_get_attribute_int32
  g_file_info_get_attribute_int64
  g_file_info_get_attribute_object
@@ -2649,6 +2718,7 @@ EXPORTS
  g_file_info_set_attribute
  g_file_info_set_attribute_boolean
  g_file_info_set_attribute_byte_string
+ g_file_info_set_attribute_file_path
  g_file_info_set_attribute_int32
  g_file_info_set_attribute_int64
  g_file_info_set_attribute_mask
@@ -2720,8 +2790,10 @@ EXPORTS
  g_file_mount_mountable_finish
  g_file_move
  g_file_move_async
+ g_file_move_async_with_closures
  g_file_move_finish
  g_file_new_build_filename
+ g_file_new_build_filenamev
  g_file_new_for_commandline_arg
  g_file_new_for_commandline_arg_and_cwd
  g_file_new_for_path
@@ -2820,6 +2892,7 @@ EXPORTS
  g_icon_to_string
  g_inet_address_equal
  g_inet_address_get_family
+ g_inet_address_get_flowinfo
  g_inet_address_get_is_any
  g_inet_address_get_is_link_local
  g_inet_address_get_is_loopback
@@ -2831,6 +2904,7 @@ EXPORTS
  g_inet_address_get_is_multicast
  g_inet_address_get_is_site_local
  g_inet_address_get_native_size
+ g_inet_address_get_scope_id
  g_inet_address_get_type
  g_inet_address_mask_equal
  g_inet_address_mask_get_address
@@ -2843,6 +2917,7 @@ EXPORTS
  g_inet_address_mask_to_string
  g_inet_address_new_any
  g_inet_address_new_from_bytes
+ g_inet_address_new_from_bytes_with_ipv6_info
  g_inet_address_new_from_string
  g_inet_address_new_loopback
  g_inet_address_to_bytes
@@ -3206,6 +3281,7 @@ EXPORTS
  g_proxy_resolver_lookup_async
  g_proxy_resolver_lookup_finish
  g_proxy_supports_hostname
+ g_registry_settings_backend_new
  g_remote_action_group_activate_action_full
  g_remote_action_group_change_action_state_full
  g_remote_action_group_get_type
@@ -3214,6 +3290,7 @@ EXPORTS
  g_resolver_free_addresses
  g_resolver_free_targets
  g_resolver_get_default
+ g_resolver_get_timeout
  g_resolver_get_type
  g_resolver_lookup_by_address
  g_resolver_lookup_by_address_async
@@ -3233,12 +3310,14 @@ EXPORTS
  g_resolver_name_lookup_flags_get_type
  g_resolver_record_type_get_type
  g_resolver_set_default
+ g_resolver_set_timeout
  g_resource_enumerate_children
  g_resource_error_get_type
  g_resource_error_quark
  g_resource_flags_get_type
  g_resource_get_info
  g_resource_get_type
+ g_resource_has_children
  g_resource_load
  g_resource_lookup_data
  g_resource_lookup_flags_get_type
@@ -3248,6 +3327,7 @@ EXPORTS
  g_resource_unref
  g_resources_enumerate_children
  g_resources_get_info
+ g_resources_has_children
  g_resources_lookup_data
  g_resources_open_stream
  g_resources_register
@@ -3271,6 +3351,7 @@ EXPORTS
  g_settings_bind
  g_settings_bind_flags_get_type
  g_settings_bind_with_mapping
+ g_settings_bind_with_mapping_closures
  g_settings_bind_writable
  g_settings_create_action
  g_settings_delay
@@ -3512,6 +3593,8 @@ EXPORTS
  g_socket_new_from_fd
  g_socket_protocol_get_type
  g_socket_receive
+ g_socket_receive_bytes
+ g_socket_receive_bytes_from
  g_socket_receive_from
  g_socket_receive_message
  g_socket_receive_messages
@@ -3614,7 +3697,9 @@ EXPORTS
  g_task_return_error_if_cancelled
  g_task_return_int
  g_task_return_new_error
+ g_task_return_new_error_literal
  g_task_return_pointer
+ g_task_return_prefixed_error
  g_task_return_value
  g_task_run_in_thread
  g_task_run_in_thread_sync
@@ -3623,6 +3708,7 @@ EXPORTS
  g_task_set_priority
  g_task_set_return_on_cancel
  g_task_set_source_tag
+ g_task_set_static_name
  g_task_set_task_data
  g_tcp_connection_get_graceful_disconnect
  g_tcp_connection_get_type
@@ -3885,9 +3971,11 @@ EXPORTS
  g_win32_run_session_bus
  g_zlib_compressor_format_get_type
  g_zlib_compressor_get_file_info
+ g_zlib_compressor_get_os
  g_zlib_compressor_get_type
  g_zlib_compressor_new
  g_zlib_compressor_set_file_info
+ g_zlib_compressor_set_os
  g_zlib_decompressor_get_file_info
  g_zlib_decompressor_get_type
  g_zlib_decompressor_new
@@ -3999,6 +4087,7 @@ EXPORTS
  g_closure_unref
  g_date_get_type
  g_date_time_get_type
+ g_dir_get_type
  g_enum_complete_type_info
  g_enum_get_value
  g_enum_get_value_by_name
@@ -4015,6 +4104,7 @@ EXPORTS
  g_gstring_get_type
  g_gtype_get_type
  g_hash_table_get_type
+ g_hmac_get_type
  g_initially_unowned_get_type
  g_io_channel_get_type
  g_io_condition_get_type
@@ -4107,6 +4197,7 @@ EXPORTS
  g_param_spec_override
  g_param_spec_param
  g_param_spec_pointer
+ g_param_spec_pool_free
  g_param_spec_pool_insert
  g_param_spec_pool_list
  g_param_spec_pool_list_owned
@@ -4140,6 +4231,7 @@ EXPORTS
  g_pointer_type_register_static
  g_pollfd_get_type
  g_ptr_array_get_type
+ g_rand_get_type
  g_regex_get_type
  g_signal_accumulator_first_wins
  g_signal_accumulator_true_handled
@@ -4198,6 +4290,7 @@ EXPORTS
  g_source_set_closure
  g_source_set_dummy_callback
  g_strdup_value_contents
+ g_strv_builder_get_type
  g_strv_get_type
  g_thread_get_type
  g_time_zone_get_type
@@ -4220,6 +4313,7 @@ EXPORTS
  g_type_children
  g_type_class_add_private
  g_type_class_adjust_private_offset
+ g_type_class_get
  g_type_class_get_instance_private_offset
  g_type_class_get_private
  g_type_class_peek
@@ -4229,6 +4323,7 @@ EXPORTS
  g_type_class_unref
  g_type_class_unref_uncached
  g_type_create_instance
+ g_type_default_interface_get
  g_type_default_interface_peek
  g_type_default_interface_ref
  g_type_default_interface_unref
@@ -4360,6 +4455,7 @@ EXPORTS
  g_value_set_uint64
  g_value_set_ulong
  g_value_set_variant
+ g_value_steal_string
  g_value_take_boxed
  g_value_take_object
  g_value_take_param
@@ -4891,6 +4987,7 @@ EXPORTS
  gst_buffer_insert_memory
  gst_buffer_is_all_memory_writable
  gst_buffer_is_memory_range_writable
+ gst_buffer_is_writable
  gst_buffer_iterate_meta
  gst_buffer_iterate_meta_filtered
  gst_buffer_list_calculate_size
@@ -4901,14 +4998,18 @@ EXPORTS
  gst_buffer_list_get_type
  gst_buffer_list_get_writable
  gst_buffer_list_insert
+ gst_buffer_list_is_writable
  gst_buffer_list_length
+ gst_buffer_list_make_writable
  gst_buffer_list_new
  gst_buffer_list_new_sized
  gst_buffer_list_ref
  gst_buffer_list_remove
  gst_buffer_list_replace
+ gst_buffer_list_steal
  gst_buffer_list_take
  gst_buffer_list_unref
+ gst_buffer_make_writable
  gst_buffer_map
  gst_buffer_map_range
  gst_buffer_memcmp
@@ -4956,6 +5057,8 @@ EXPORTS
  gst_buffer_resize_range
  gst_buffer_set_flags
  gst_buffer_set_size
+ gst_buffer_steal
+ gst_buffer_take
  gst_buffer_unmap
  gst_buffer_unref
  gst_buffer_unset_flags
@@ -4987,6 +5090,7 @@ EXPORTS
  gst_bus_timed_pop
  gst_bus_timed_pop_filtered
  gst_calculate_linear_regression
+ gst_call_async
  gst_caps_append
  gst_caps_append_structure
  gst_caps_append_structure_full
@@ -5052,6 +5156,8 @@ EXPORTS
  gst_caps_is_subset
  gst_caps_is_subset_structure
  gst_caps_is_subset_structure_full
+ gst_caps_is_writable
+ gst_caps_make_writable
  gst_caps_map_in_place
  gst_caps_merge
  gst_caps_merge_structure
@@ -5080,6 +5186,7 @@ EXPORTS
  gst_caps_set_value
  gst_caps_set_value_static_str
  gst_caps_simplify
+ gst_caps_steal
  gst_caps_steal_structure
  gst_caps_subtract
  gst_caps_take
@@ -5157,6 +5264,8 @@ EXPORTS
  gst_context_get_type
  gst_context_has_context_type
  gst_context_is_persistent
+ gst_context_is_writable
+ gst_context_make_writable
  gst_context_new
  gst_context_ref
  gst_context_replace
@@ -5426,6 +5535,8 @@ EXPORTS
  gst_element_set_locked_state
  gst_element_set_start_time
  gst_element_set_state
+ gst_element_sort_sink_pads
+ gst_element_sort_src_pads
  gst_element_state_change_return_get_name
  gst_element_state_get_name
  gst_element_sync_state_with_parent
@@ -5442,6 +5553,8 @@ EXPORTS
  gst_event_get_type
  gst_event_has_name
  gst_event_has_name_id
+ gst_event_is_writable
+ gst_event_make_writable
  gst_event_new_buffer_size
  gst_event_new_caps
  gst_event_new_custom
@@ -5600,6 +5713,7 @@ EXPORTS
  gst_log_context_reset
  gst_make_element_message_details
  gst_map_flags_get_type
+ gst_map_info_get_data
  gst_memory_alignment
  gst_memory_copy
  gst_memory_flags_get_type
@@ -5608,12 +5722,17 @@ EXPORTS
  gst_memory_init
  gst_memory_is_span
  gst_memory_is_type
+ gst_memory_is_writable
  gst_memory_make_mapped
+ gst_memory_make_writable
  gst_memory_map
  gst_memory_new_wrapped
  gst_memory_ref
+ gst_memory_replace
  gst_memory_resize
  gst_memory_share
+ gst_memory_steal
+ gst_memory_take
  gst_memory_unmap
  gst_memory_unref
  gst_message_add_redirect_entry
@@ -5625,6 +5744,8 @@ EXPORTS
  gst_message_get_structure
  gst_message_get_type
  gst_message_has_name
+ gst_message_is_writable
+ gst_message_make_writable
  gst_message_new_application
  gst_message_new_async_done
  gst_message_new_async_start
@@ -5718,6 +5839,7 @@ EXPORTS
  gst_message_set_qos_values
  gst_message_set_seqnum
  gst_message_set_stream_status_object
+ gst_message_steal
  gst_message_streams_selected_add
  gst_message_streams_selected_get_size
  gst_message_streams_selected_get_stream
@@ -5736,6 +5858,9 @@ EXPORTS
  gst_meta_api_type_tags_contain_only
  gst_meta_compare_seqnum
  gst_meta_deserialize
+ gst_meta_factory_get_type
+ gst_meta_factory_load
+ gst_meta_factory_register
  gst_meta_flags_get_type
  gst_meta_get_info
  gst_meta_get_seqnum
@@ -5768,6 +5893,7 @@ EXPORTS
  gst_mini_object_weak_ref
  gst_mini_object_weak_unref
  gst_object_add_control_binding
+ gst_object_call_async
  gst_object_check_uniqueness
  gst_object_default_deep_notify
  gst_object_default_error
@@ -5860,7 +5986,16 @@ EXPORTS
  gst_pad_probe_info_get_buffer
  gst_pad_probe_info_get_buffer_list
  gst_pad_probe_info_get_event
+ gst_pad_probe_info_get_flow_return
+ gst_pad_probe_info_get_id
+ gst_pad_probe_info_get_offset
  gst_pad_probe_info_get_query
+ gst_pad_probe_info_get_size
+ gst_pad_probe_info_get_type
+ gst_pad_probe_info_set_buffer
+ gst_pad_probe_info_set_buffer_list
+ gst_pad_probe_info_set_event
+ gst_pad_probe_info_set_flow_return
  gst_pad_probe_return_get_type
  gst_pad_probe_type_get_type
  gst_pad_proxy_query_accept_caps
@@ -6066,6 +6201,8 @@ EXPORTS
  gst_query_get_type
  gst_query_has_scheduling_mode
  gst_query_has_scheduling_mode_with_flags
+ gst_query_is_writable
+ gst_query_make_writable
  gst_query_new_accept_caps
  gst_query_new_allocation
  gst_query_new_bitrate
@@ -6140,6 +6277,7 @@ EXPORTS
  gst_query_set_uri
  gst_query_set_uri_redirection
  gst_query_set_uri_redirection_permanent
+ gst_query_steal
  gst_query_take
  gst_query_type_flags_get_type
  gst_query_type_get_flags
@@ -6180,6 +6318,8 @@ EXPORTS
  gst_sample_get_info
  gst_sample_get_segment
  gst_sample_get_type
+ gst_sample_is_writable
+ gst_sample_make_writable
  gst_sample_new
  gst_sample_ref
  gst_sample_set_buffer
@@ -6223,7 +6363,9 @@ EXPORTS
  gst_stack_trace_flags_get_type
  gst_state_change_get_name
  gst_state_change_get_type
+ gst_state_change_return_get_name
  gst_state_change_return_get_type
+ gst_state_get_name
  gst_state_get_type
  gst_static_caps_cleanup
  gst_static_caps_get
@@ -6412,6 +6554,8 @@ EXPORTS
  gst_tag_list_insert
  gst_tag_list_is_empty
  gst_tag_list_is_equal
+ gst_tag_list_is_writable
+ gst_tag_list_make_writable
  gst_tag_list_merge
  gst_tag_list_n_tags
  gst_tag_list_new
@@ -7768,6 +7912,7 @@ EXPORTS
  gst_video_meta_get_plane_size
  gst_video_meta_map
  gst_video_meta_set_alignment
+ gst_video_meta_set_alignment_full
  gst_video_meta_transform_scale_get_quark
  gst_video_meta_unmap
  gst_video_multiview_flags_get_type
@@ -8027,8 +8172,8 @@ EXPORTS
  gst_rtp_base_depayload_set_aggregate_hdrext_enabled
  gst_rtp_base_depayload_set_source_info_enabled
  gst_rtp_base_payload_allocate_output_buffer
- gst_rtp_base_payload_get_source_count
  gst_rtp_base_payload_get_extension_header_size
+ gst_rtp_base_payload_get_source_count
  gst_rtp_base_payload_get_type
  gst_rtp_base_payload_is_filled
  gst_rtp_base_payload_is_source_info_enabled
@@ -8542,6 +8687,7 @@ EXPORTS
  gst_h266_parse_sps
  gst_h266_parse_vps
  gst_h266_parser_free
+ gst_h266_parser_identify_and_split_nalu_vvc
  gst_h266_parser_identify_nalu
  gst_h266_parser_identify_nalu_unchecked
  gst_h266_parser_identify_nalu_vvc
@@ -8931,9 +9077,12 @@ EXPORTS
  pex_rtmp_server_add_direct_publisher
  pex_rtmp_server_add_direct_subscriber
  pex_rtmp_server_dialin
+ pex_rtmp_server_dialin_with_timeout
  pex_rtmp_server_dialout
+ pex_rtmp_server_dialout_with_timeout
  pex_rtmp_server_disconnect_client
  pex_rtmp_server_external_connect
+ pex_rtmp_server_external_connect_with_timeout
  pex_rtmp_server_flush_subscribe
  pex_rtmp_server_free
  pex_rtmp_server_get_application_for_path
@@ -9100,6 +9249,7 @@ EXPORTS
  pango_font_description_free
  pango_font_description_from_string
  pango_font_description_get_family
+ pango_font_description_get_features
  pango_font_description_get_gravity
  pango_font_description_get_set_fields
  pango_font_description_get_size
@@ -9117,6 +9267,8 @@ EXPORTS
  pango_font_description_set_absolute_size
  pango_font_description_set_family
  pango_font_description_set_family_static
+ pango_font_description_set_features
+ pango_font_description_set_features_static
  pango_font_description_set_gravity
  pango_font_description_set_size
  pango_font_description_set_stretch
@@ -9153,6 +9305,7 @@ EXPORTS
  pango_font_get_metrics
  pango_font_get_type
  pango_font_has_char
+ pango_font_map_add_font_file
  pango_font_map_changed
  pango_font_map_create_context
  pango_font_map_get_family
@@ -9162,6 +9315,7 @@ EXPORTS
  pango_font_map_list_families
  pango_font_map_load_font
  pango_font_map_load_fontset
+ pango_font_map_reload_font
  pango_font_mask_get_type
  pango_font_metrics_get_approximate_char_width
  pango_font_metrics_get_approximate_digit_width
@@ -9226,6 +9380,7 @@ EXPORTS
  pango_item_apply_attrs
  pango_item_copy
  pango_item_free
+ pango_item_get_char_offset
  pango_item_get_type
  pango_item_new
  pango_item_split
@@ -9505,8 +9660,11 @@ EXPORTS
  pango_win32_font_get_metrics_factor
  pango_win32_font_logfont
  pango_win32_font_logfontw
+ pango_win32_font_map_add_font_file
+ pango_win32_font_map_cache_clear
  pango_win32_font_map_for_display
  pango_win32_font_map_get_font_cache
+ pango_win32_font_map_get_type
  pango_win32_font_select_font
  pango_win32_get_context
  pango_win32_get_dc
