@@ -160,6 +160,10 @@ if not is_windows
   lgpl_link_args = ['-lstdc++']
 endif
 
+if is_windows
+  lgpl_deps += [cc.find_library('Crypt32')]
+endif
+
 # for pkg-config
 config_requires = ''
 
