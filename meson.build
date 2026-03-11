@@ -22,7 +22,6 @@ json_glib_req = '>= 1.5.1'
 cc = meson.get_compiler('c')
 host_system = host_machine.system()
 cpu_family = host_machine.cpu_family()
-is_linux = host_system == 'linux'
 static_build = get_option('default_library') == 'static'
 
 pkgconfig = find_program('pkg-config')
@@ -151,49 +150,14 @@ gst_plugin_list = [
 
 lgpl_sources = []
 lgpl_incs = []
+lgpl_c_args = []
+lgpl_link_args = []
 lgpl_link_depends = []
 lgpl_deps = []
 
-# ── Reproducible build flags ──────────────────────────────────────────
-lgpl_c_args = []
-lgpl_cpp_args = []
-lgpl_link_args = []
-
-if is_windows
-  lgpl_c_args += ['/Brepro']
-  lgpl_cpp_args += ['/Brepro']
-  lgpl_link_args += ['/Brepro']
-else
-  lgpl_c_args += [
-    '-Wdate-time',
-    '-ffile-prefix-map=' + meson.project_source_root() + '=.',
-    '-ffile-prefix-map=' + meson.project_build_root() + '=.',
-  ]
-  lgpl_cpp_args += [
-    '-Wdate-time',
-    '-ffile-prefix-map=' + meson.project_source_root() + '=.',
-    '-ffile-prefix-map=' + meson.project_build_root() + '=.',
-  ]
-  if cc.get_id() == 'gcc'
-    lgpl_c_args += ['-frandom-seed=pexlgpl']
-    lgpl_cpp_args += ['-frandom-seed=pexlgpl']
-  endif
-  if cc.get_id() == 'clang'
-    lgpl_c_args += ['-fdebug-compilation-dir=.']
-    lgpl_cpp_args += ['-fdebug-compilation-dir=.']
-  endif
-endif
-
-if is_linux or is_android
-  lgpl_link_args += ['-Wl,--build-id=sha1']
-elif is_apple
-  lgpl_link_args += ['-Wl,-reproducible']
-endif
-# ── End reproducible build flags ─────────────────────────────────────
-
 if not is_windows
   # we have to explicit link against stdc++ for dcSCTP on Linux and others
-  lgpl_link_args += ['-lstdc++']
+  lgpl_link_args = ['-lstdc++']
 endif
 
 if is_windows
@@ -225,7 +189,6 @@ if static_build
 
     lgpl_link_args += [
       '/DEF:' + lgpl_map,
-      '/Brepro',
       '/EXPORT:pex_lgpl_init_static_plugins',
       '/EXPORT:gst_init_static_plugins',
     ]
@@ -294,7 +257,6 @@ if static_build
   lgpl_lib = shared_library('pexlgpl', lgpl_sources,
     dependencies: lgpl_deps,
     c_args: lgpl_c_args,
-    cpp_args: lgpl_cpp_args,
     link_args: lgpl_link_args,
     link_depends: lgpl_link_depends,
     include_directories : lgpl_incs,
