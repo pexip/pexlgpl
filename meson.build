@@ -13,7 +13,7 @@ git = find_program('git', required : true)
 version_arr = meson.project_version().split('.')
 major_version = version_arr[0].to_int()
 minor_version = version_arr[1].to_int()
-num_commits = run_command(git, 'rev-list', '--reverse', '--count', 'HEAD',  capture : true, check : true).stdout().strip().to_int()
+num_commits = run_command(git, 'rev-list', '--count', 'HEAD',  capture : true, check : true).stdout().strip().to_int()
 micro_version = num_commits / 10000
 rev_version = num_commits % 10000
 
