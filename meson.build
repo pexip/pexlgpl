@@ -8,7 +8,7 @@ project('pexlgpl',
   ]
 )
 
-git = find_program('git', required : true)
+git = find_program('git', native : true, required : true)
 
 version_arr = meson.project_version().split('.')
 major_version = version_arr[0].to_int()
