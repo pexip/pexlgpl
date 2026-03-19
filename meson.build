@@ -37,7 +37,6 @@ jpeg_dep = dependency('libjpeg')
 png_dep = dependency('libpng')
 pulseaudio_dep = dependency('libpulse', required: false)
 alsa_dep = dependency('alsa', required: false)
-gst_aes_dep = dependency('gstreamer-aes-1.0', version : gst_req, required : false)
 
 is_arm = (cpu_family == 'arm' or cpu_family == 'aarch64')
 is_windows = host_system == 'windows'
@@ -124,7 +123,6 @@ gst_plugin_list = [
   [ ['gstvideosignal'] ],
   [ ['gstsctp'] ],
   [ ['gstlibav'] ],
-  [ ['gstaes'], gst_aes_dep.found() ],
   [ ['gstspeex'], (not is_windows and not is_arm and not is_cross and not is_darwin) ],
   [ ['gstrtmp'], (not is_windows and not is_emscripten) ],
   [ ['gstjpeg'], jpeg_dep.found() ],
