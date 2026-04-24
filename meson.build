@@ -196,7 +196,7 @@ if static_build
     warning('FIXME: Linker does not support a map?!')
   endif
 
-  lgpl_sources += [join_paths(meson.build_root(), '..', '..', 'external', 'gstreamer', 'gstreamer', 'gstinitstaticplugins.c')]
+  lgpl_sources += [join_paths(get_option('prefix'),  'share', 'gstinitstaticplugins.c')]
   lgpl_sources += ['pexlgplstaticplugins.c']
 
   # specify resource file on Windows
