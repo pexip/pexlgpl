@@ -9085,7 +9085,9 @@ EXPORTS
  pex_rtmp_server_flush_subscribe
  pex_rtmp_server_free
  pex_rtmp_server_get_application_for_path
+ pex_rtmp_server_get_port
  pex_rtmp_server_get_type
+ pex_rtmp_server_get_ssl_port
  pex_rtmp_server_new
  pex_rtmp_server_publish_flv
  pex_rtmp_server_remove_direct_publisher
