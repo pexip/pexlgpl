@@ -9096,6 +9096,7 @@ EXPORTS
  tcp_accept
  tcp_connect
  tcp_disconnect
+ tcp_get_listen_port
  tcp_is_localhost
  tcp_listen
  tcp_set_nonblock
