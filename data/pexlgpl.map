@@ -32,6 +32,7 @@
     tcp_connect;
     tcp_listen;
     tcp_disconnect;
+    tcp_get_listen_port;
     parse_rtmp_url;
     connections_new;
     connections_free;
