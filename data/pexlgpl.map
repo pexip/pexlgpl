@@ -30,6 +30,7 @@
     json_*;
     buffers;
     tcp_connect;
+    tcp_is_localhost;
     tcp_listen;
     tcp_disconnect;
     tcp_get_listen_port;
