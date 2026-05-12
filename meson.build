@@ -149,7 +149,6 @@ gst_plugin_list = [
 ]
 
 lgpl_sources = []
-lgpl_incs = []
 lgpl_c_args = []
 lgpl_link_args = []
 lgpl_link_depends = []
@@ -172,7 +171,6 @@ if static_build
   lgpl_deps_list += gst_plugin_list
 
   # to include the config.h from the static plugins
-  lgpl_incs += [include_directories(join_paths(meson.build_root(), '..', '..', 'external', 'gstreamer', 'gstreamer'))]
   lgpl_c_args += ['-DHAVE_CONFIG_H']
 
   # nice is already included by gstnice, but we still need it in the pkgconfig
@@ -196,7 +194,7 @@ if static_build
     warning('FIXME: Linker does not support a map?!')
   endif
 
-  lgpl_sources += [join_paths(get_option('prefix'),  'share', 'gstinitstaticplugins.c')]
+  lgpl_sources += [join_paths(get_option('prefix'),  'share', 'gstreamer-1.0', 'gstinitstaticplugins.c')]
   lgpl_sources += ['pexlgplstaticplugins.c']
 
   # specify resource file on Windows
@@ -259,7 +257,6 @@ if static_build
     c_args: lgpl_c_args,
     link_args: lgpl_link_args,
     link_depends: lgpl_link_depends,
-    include_directories : lgpl_incs,
     install: true)
 endif
 
