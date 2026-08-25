@@ -46,6 +46,24 @@ under the `data`.
 For Windows, we have created a little script under `tools` to generate the map
 automatically from already built dynamic DLL files.
 
+Exported *data* symbols (marked `DATA` in `data/pexlgpl.def`, e.g.
+`g_utf8_skip`) need some extra care on Windows. GLib declares its exported
+variables as plain `extern` instead of `__declspec(dllimport)` when
+`GLIB_STATIC_COMPILATION` (and the `GOBJECT`/`GIO`/`GMODULE` variants) are
+defined. Consumers of the bundle link against `pexlgpl.dll` and need the
+`dllimport` view: an import library provides an undecorated thunk for exported
+*functions*, but exported *data* only ever gets an `__imp_` prefixed symbol, so
+a plain `extern` reference fails with `unresolved external symbol`.
+
+Upstream GLib bakes those macros into the installed `glibconfig.h` when built
+statically, which would force that broken view on every consumer. Our GLib fork
+therefore only passes them on the command line (and through the static
+pkg-config `Cflags`), the same way GStreamer handles `GST_STATIC_COMPILATION`.
+The sources merged into the bundle are linked against the static GLib and still
+need the static view, so we define those macros explicitly for the bundle's own
+compilation. The generated `pexlgpl.pc` only exports `-I` flags, so none of the
+static compilation macros leak out to consumers.
+
 
 #### Dynamic versus Static 
 

@@ -218,6 +218,20 @@ if static_build
     pexlgpl_win_res = windows.compile_resources(pexlgpl_win_rc, include_directories: include_directories('.'))
     lgpl_sources += [pexlgpl_win_res]
     lgpl_sources += ['dllmain.c']
+
+    # Our GLib fork no longer bakes GLIB_STATIC_COMPILATION and friends into
+    # the installed glibconfig.h, so consumers of pexlgpl.dll get the
+    # dllimport view they need for exported data symbols.  The sources merged
+    # into the bundle are linked against the *static* GLib and must keep the
+    # static view, so set the macros explicitly here instead of relying on the
+    # ordering of the dependency cflags.
+    lgpl_c_args += [
+      '-DGLIB_STATIC_COMPILATION',
+      '-DGOBJECT_STATIC_COMPILATION',
+      '-DGIO_STATIC_COMPILATION',
+      '-DGMODULE_STATIC_COMPILATION',
+      '-DG_INTL_STATIC_COMPILATION',
+    ]
   endif # is_windows
 
 else # !static_build
