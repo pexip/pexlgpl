@@ -1700,6 +1700,7 @@ EXPORTS
  g_utf8_offset_to_pointer
  g_utf8_pointer_to_offset
  g_utf8_prev_char
+ g_utf8_skip DATA
  g_utf8_strchr
  g_utf8_strdown
  g_utf8_strlen
