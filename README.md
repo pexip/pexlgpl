@@ -57,12 +57,12 @@ a plain `extern` reference fails with `unresolved external symbol`.
 
 Upstream GLib bakes those macros into the installed `glibconfig.h` when built
 statically, which would force that broken view on every consumer. Our GLib fork
-therefore only passes them on the command line (and through the static
-pkg-config `Cflags`), the same way GStreamer handles `GST_STATIC_COMPILATION`.
-The sources merged into the bundle are linked against the static GLib and still
-need the static view, so we define those macros explicitly for the bundle's own
-compilation. The generated `pexlgpl.pc` only exports `-I` flags, so none of the
-static compilation macros leak out to consumers.
+therefore only exposes them through its own static pkg-config `Cflags`, the same
+way GStreamer handles `GST_STATIC_COMPILATION`. Anything linking the static GLib
+- including the sources merged into this bundle - picks them up from there; we
+deliberately do not hardcode them here. The generated `pexlgpl.pc` only exports
+`-I` flags, so none of the static compilation macros leak out to consumers of
+`pexlgpl.dll`.
 
 
 #### Dynamic versus Static 
