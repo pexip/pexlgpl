@@ -49,19 +49,23 @@ automatically from already built dynamic DLL files.
 Exported *data* symbols (marked `DATA` in `data/pexlgpl.def`, e.g.
 `g_utf8_skip`) need some extra care on Windows. GLib is built statically before
 being merged into the bundle, so its installed `glibconfig.h` contains
-`GLIB_STATIC_COMPILATION` (and the `GOBJECT`/`GIO`/`GMODULE`/`GI` variants).
-Those macros make GLib declare its exported symbols as plain `extern` rather
-than `__declspec(dllimport)`. Consumers of the bundle link against
+`GLIB_STATIC_COMPILATION` (and the `GOBJECT` variant). Those macros make GLib
+declare its exported variables as plain `extern` rather than
+`__declspec(dllimport)`. Consumers of the bundle link against
 `pexlgpl.dll` and need the `dllimport` view instead: an import library provides
 an undecorated thunk for exported *functions*, but exported *data* only ever
 gets an `__imp_` prefixed symbol, so a plain `extern` reference fails with
 `unresolved external symbol`.
 
 Since those macros live in an installed header rather than in the pkg-config
-flags, we install an override `glibconfig.h` (see `include/glibconfig.h.in`)
-under `${includedir}/pexlgpl`, which includes the real header and then undoes
-the static compilation macros. That directory is put first in the `Cflags` of
-the generated pkg-config file. It is deliberately *not* on the include path of
+flags, we install a small prelude header (`include/pexlgpl-prelude.h`) under
+`${includedir}/pexlgpl` and force-include it (`/FI`) from the `Cflags` of the
+generated pkg-config file. It includes the real `glibconfig.h` once and then
+undoes the static compilation macros; because that header has its own include
+guard, every later `#include <glibconfig.h>` is a no-op, so the macros stay
+undefined regardless of how the consumer orders its include path. A plain
+shadowing header would only work as long as our `-I` happened to be searched
+first, which we cannot guarantee. The prelude is deliberately *not* applied to
 the bundle's own sources, which must keep seeing the static view.
 
 GStreamer uses the same pattern, but its `GST_STATIC_COMPILATION` is only
