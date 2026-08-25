@@ -225,13 +225,9 @@ if static_build
     # GLib bakes GLIB_STATIC_COMPILATION and friends into the installed
     # glibconfig.h when it is built statically.  Consumers of the bundle link
     # against pexlgpl.dll and therefore need the dllimport view instead, so
-    # force-include a prelude that undoes those macros.
+    # install an override header ahead of GLib's own include path.
     subdir('include')
-    if cc.get_id() == 'msvc' or cc.get_id() == 'clang-cl'
-      lgpl_public_c_args += '-I${includedir}/pexlgpl -FIpexlgpl-prelude.h '
-    else
-      lgpl_public_c_args += '-I${includedir}/pexlgpl -include pexlgpl-prelude.h '
-    endif
+    lgpl_public_c_args += '-I${includedir}/pexlgpl '
   endif # is_windows
 
 else # !static_build
@@ -336,8 +332,8 @@ if static_build
     config_cflags += cf + ' '
   endforeach
 
-  # our own flags must come first: the prelude has to be force-included before
-  # anything can pull in GLib's own glibconfig.h
+  # our own include paths must come first so that the override headers win
+  # over the ones installed by the dependencies
   config_cflags = lgpl_public_c_args + config_cflags
 
   config_libs = '-lpexlgpl ' + config_libs
