@@ -1700,7 +1700,7 @@ EXPORTS
  g_utf8_offset_to_pointer
  g_utf8_pointer_to_offset
  g_utf8_prev_char
- g_utf8_skip
+ g_utf8_skip DATA
  g_utf8_strchr
  g_utf8_strdown
  g_utf8_strlen
@@ -4211,7 +4211,7 @@ EXPORTS
  g_param_spec_sink
  g_param_spec_steal_qdata
  g_param_spec_string
- g_param_spec_types
+ g_param_spec_types DATA
  g_param_spec_uchar
  g_param_spec_uint
  g_param_spec_uint64
