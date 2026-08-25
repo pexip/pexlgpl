@@ -150,9 +150,6 @@ gst_plugin_list = [
 
 lgpl_sources = []
 lgpl_c_args = []
-# extra cflags exported to consumers through pkg-config only, never used to
-# build the bundle itself
-lgpl_public_c_args = ''
 lgpl_link_args = []
 lgpl_link_depends = []
 lgpl_deps = []
@@ -221,13 +218,6 @@ if static_build
     pexlgpl_win_res = windows.compile_resources(pexlgpl_win_rc, include_directories: include_directories('.'))
     lgpl_sources += [pexlgpl_win_res]
     lgpl_sources += ['dllmain.c']
-
-    # GLib bakes GLIB_STATIC_COMPILATION and friends into the installed
-    # glibconfig.h when it is built statically.  Consumers of the bundle link
-    # against pexlgpl.dll and therefore need the dllimport view instead, so
-    # install an override header ahead of GLib's own include path.
-    subdir('include')
-    lgpl_public_c_args += '-I${includedir}/pexlgpl '
   endif # is_windows
 
 else # !static_build
@@ -331,10 +321,6 @@ if static_build
   foreach cf : cflags_uniq
     config_cflags += cf + ' '
   endforeach
-
-  # our own include paths must come first so that the override headers win
-  # over the ones installed by the dependencies
-  config_cflags = lgpl_public_c_args + config_cflags
 
   config_libs = '-lpexlgpl ' + config_libs
   conf.set('LIBS', ' '.join(config_libs))
