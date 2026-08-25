@@ -217,6 +217,7 @@ if static_build
                                     configuration: c)
     pexlgpl_win_res = windows.compile_resources(pexlgpl_win_rc, include_directories: include_directories('.'))
     lgpl_sources += [pexlgpl_win_res]
+    lgpl_sources += ['dllmain.c']
   endif # is_windows
 
 else # !static_build
