@@ -64,6 +64,14 @@ deliberately do not hardcode them here. The generated `pexlgpl.pc` only exports
 `-I` flags, so none of the static compilation macros leak out to consumers of
 `pexlgpl.dll`.
 
+Marking those data exports is not optional: without `DATA` the linker creates a
+callable thunk under the undecorated name, so a `dllimport` consumer fails with
+`unresolved external symbol __imp_<name>` while a plain `extern` consumer
+silently reads the address of the thunk instead of the variable. The generator
+script works this out on its own by looking up each export's RVA in the section
+headers of the DLL: anything that does not land in an executable section is
+data.
+
 
 #### Dynamic versus Static 
 

@@ -3,7 +3,7 @@
 
 EXPORTS
 ; C:\pexip\media\.build\windows-amd64\__install__\bin\glib-2.0-0.dll
- __glib_assert_msg
+ __glib_assert_msg DATA
  _glib_get_locale_dir
  g_abort
  g_access
@@ -57,7 +57,7 @@ EXPORTS
  g_ascii_strtoll
  g_ascii_strtoull
  g_ascii_strup
- g_ascii_table
+ g_ascii_table DATA
  g_ascii_tolower
  g_ascii_toupper
  g_ascii_xdigit_value
@@ -249,7 +249,7 @@ EXPORTS
  g_checksum_update
  g_child_watch_add
  g_child_watch_add_full
- g_child_watch_funcs
+ g_child_watch_funcs DATA
  g_child_watch_source_new
  g_chmod
  g_clear_error
@@ -576,7 +576,7 @@ EXPORTS
  g_idle_add
  g_idle_add_full
  g_idle_add_once
- g_idle_funcs
+ g_idle_funcs DATA
  g_idle_remove_by_data
  g_idle_source_new
  g_int64_equal
@@ -631,7 +631,7 @@ EXPORTS
  g_io_channel_write_chars
  g_io_channel_write_unichar
  g_io_create_watch
- g_io_watch_funcs
+ g_io_watch_funcs DATA
  g_key_file_error_quark
  g_key_file_free
  g_key_file_get_boolean
@@ -839,7 +839,7 @@ EXPORTS
  g_mem_chunk_new
  g_mem_chunk_print
  g_mem_chunk_reset
- g_mem_gc_friendly
+ g_mem_gc_friendly DATA
  g_mem_is_system_malloc
  g_mem_profile
  g_mem_set_vtable
@@ -1443,7 +1443,7 @@ EXPORTS
  g_test_bug_base
  g_test_build_filename
  g_test_case_free
- g_test_config_vars
+ g_test_config_vars DATA
  g_test_create_case
  g_test_create_suite
  g_test_disable_crash_reporting
@@ -1498,10 +1498,10 @@ EXPORTS
  g_thread_error_quark
  g_thread_exit
  g_thread_foreach
- g_thread_functions_for_glib_use
+ g_thread_functions_for_glib_use DATA
  g_thread_get_initialized
  g_thread_get_name
- g_thread_gettime
+ g_thread_gettime DATA
  g_thread_init_glib
  g_thread_join
  g_thread_new
@@ -1526,9 +1526,9 @@ EXPORTS
  g_thread_set_priority
  g_thread_try_new
  g_thread_unref
- g_thread_use_default_impl
+ g_thread_use_default_impl DATA
  g_thread_yield
- g_threads_got_initialized
+ g_threads_got_initialized DATA
  g_time_val_add
  g_time_val_from_iso8601
  g_time_val_to_iso8601
@@ -1551,7 +1551,7 @@ EXPORTS
  g_timeout_add_seconds
  g_timeout_add_seconds_full
  g_timeout_add_seconds_once
- g_timeout_funcs
+ g_timeout_funcs DATA
  g_timeout_source_new
  g_timeout_source_new_seconds
  g_timer_continue
@@ -1914,15 +1914,15 @@ EXPORTS
  g_win32_getlocale
  g_win32_locale_filename_from_utf8
  glib__private__
- glib_binary_age
+ glib_binary_age DATA
  glib_check_version
  glib_gettext
- glib_interface_age
- glib_major_version
- glib_mem_profiler_table
- glib_micro_version
- glib_minor_version
- glib_on_error_halt
+ glib_interface_age DATA
+ glib_major_version DATA
+ glib_mem_profiler_table DATA
+ glib_micro_version DATA
+ glib_minor_version DATA
+ glib_on_error_halt DATA
  glib_pgettext
 ; C:\pexip\media\.build\windows-amd64\__install__\bin\gio-2.0-0.dll
  g_action_activate
@@ -4833,81 +4833,81 @@ EXPORTS
  json_string_hash
  json_to_string
 ; C:\pexip\media\.build\windows-amd64\__install__\bin\gstreamer-1.0-0.dll
- GST_CAT_BUFFER
- GST_CAT_BUFFER_LIST
- GST_CAT_BUS
- GST_CAT_CALL_TRACE
- GST_CAT_CAPS
- GST_CAT_CLOCK
- GST_CAT_CONTEXT
- GST_CAT_DEFAULT
- GST_CAT_ELEMENT_PADS
- GST_CAT_ERROR_SYSTEM
- GST_CAT_EVENT
- GST_CAT_GST_INIT
- GST_CAT_LOCKING
- GST_CAT_MEMORY
- GST_CAT_MESSAGE
- GST_CAT_META
- GST_CAT_NEGOTIATION
- GST_CAT_PADS
- GST_CAT_PARAMS
- GST_CAT_PARENTAGE
- GST_CAT_PERFORMANCE
- GST_CAT_PIPELINE
- GST_CAT_PLUGIN_INFO
- GST_CAT_PLUGIN_LOADING
- GST_CAT_PROBE
- GST_CAT_PROPERTIES
- GST_CAT_QOS
- GST_CAT_REFCOUNTING
- GST_CAT_REGISTRY
- GST_CAT_SCHEDULING
- GST_CAT_SIGNAL
- GST_CAT_STATES
- _gst_bitmask_type
- _gst_buffer_list_type
- _gst_buffer_type
- _gst_caps_any
- _gst_caps_features_any
- _gst_caps_features_memory_system_memory
- _gst_caps_features_type
- _gst_caps_none
- _gst_caps_type
- _gst_context_type
- _gst_date_time_type
+ GST_CAT_BUFFER DATA
+ GST_CAT_BUFFER_LIST DATA
+ GST_CAT_BUS DATA
+ GST_CAT_CALL_TRACE DATA
+ GST_CAT_CAPS DATA
+ GST_CAT_CLOCK DATA
+ GST_CAT_CONTEXT DATA
+ GST_CAT_DEFAULT DATA
+ GST_CAT_ELEMENT_PADS DATA
+ GST_CAT_ERROR_SYSTEM DATA
+ GST_CAT_EVENT DATA
+ GST_CAT_GST_INIT DATA
+ GST_CAT_LOCKING DATA
+ GST_CAT_MEMORY DATA
+ GST_CAT_MESSAGE DATA
+ GST_CAT_META DATA
+ GST_CAT_NEGOTIATION DATA
+ GST_CAT_PADS DATA
+ GST_CAT_PARAMS DATA
+ GST_CAT_PARENTAGE DATA
+ GST_CAT_PERFORMANCE DATA
+ GST_CAT_PIPELINE DATA
+ GST_CAT_PLUGIN_INFO DATA
+ GST_CAT_PLUGIN_LOADING DATA
+ GST_CAT_PROBE DATA
+ GST_CAT_PROPERTIES DATA
+ GST_CAT_QOS DATA
+ GST_CAT_REFCOUNTING DATA
+ GST_CAT_REGISTRY DATA
+ GST_CAT_SCHEDULING DATA
+ GST_CAT_SIGNAL DATA
+ GST_CAT_STATES DATA
+ _gst_bitmask_type DATA
+ _gst_buffer_list_type DATA
+ _gst_buffer_type DATA
+ _gst_caps_any DATA
+ _gst_caps_features_any DATA
+ _gst_caps_features_memory_system_memory DATA
+ _gst_caps_features_type DATA
+ _gst_caps_none DATA
+ _gst_caps_type DATA
+ _gst_context_type DATA
+ _gst_date_time_type DATA
  _gst_debug_category_new
  _gst_debug_dump_mem
  _gst_debug_dump_mem_id
- _gst_debug_enabled
+ _gst_debug_enabled DATA
  _gst_debug_get_category
- _gst_debug_min
+ _gst_debug_min DATA
  _gst_debug_nameof_funcptr
  _gst_debug_register_funcptr
- _gst_double_range_type
+ _gst_double_range_type DATA
  _gst_element_error_printf
- _gst_event_type
- _gst_executable_path
- _gst_flagset_type
- _gst_fraction_range_type
- _gst_fraction_type
- _gst_int64_range_type
- _gst_int_range_type
- _gst_memory_type
- _gst_message_type
- _gst_meta_tag_memory
- _gst_meta_tag_memory_reference
- _gst_meta_transform_copy
- _gst_mini_object_type
+ _gst_event_type DATA
+ _gst_executable_path DATA
+ _gst_flagset_type DATA
+ _gst_fraction_range_type DATA
+ _gst_fraction_type DATA
+ _gst_int64_range_type DATA
+ _gst_int_range_type DATA
+ _gst_memory_type DATA
+ _gst_message_type DATA
+ _gst_meta_tag_memory DATA
+ _gst_meta_tag_memory_reference DATA
+ _gst_meta_transform_copy DATA
+ _gst_mini_object_type DATA
  _gst_plugin_loader_client_run
- _gst_query_type
- _gst_sample_type
- _gst_structure_type
- _gst_tag_list_type
- _gst_toc_entry_type
- _gst_toc_type
- _gst_value_array_type
- _gst_value_list_type
+ _gst_query_type DATA
+ _gst_sample_type DATA
+ _gst_structure_type DATA
+ _gst_tag_list_type DATA
+ _gst_toc_entry_type DATA
+ _gst_toc_type DATA
+ _gst_value_array_type DATA
+ _gst_value_list_type DATA
  gst_allocation_params_copy
  gst_allocation_params_free
  gst_allocation_params_get_type
@@ -5714,7 +5714,7 @@ EXPORTS
  gst_make_element_message_details
  gst_map_flags_get_type
  gst_map_info_get_data
- gst_memory_alignment
+ gst_memory_alignment DATA
  gst_memory_copy
  gst_memory_flags_get_type
  gst_memory_get_sizes
@@ -10236,21 +10236,21 @@ EXPORTS
 ; C:\pexip\media\.build\windows-amd64\__install__\bin\gstcheck-1.0-0.dll
  _ck_assert_failed
  _fail_unless
- _gst_check_expecting_log
- _gst_check_list_tests
- _gst_check_raised_critical
- _gst_check_raised_warning
+ _gst_check_expecting_log DATA
+ _gst_check_list_tests DATA
+ _gst_check_raised_critical DATA
+ _gst_check_raised_warning DATA
  _gst_check_run_test_func
- _gst_check_threads_running
+ _gst_check_threads_running DATA
  _mark_point
  _tcase_add_test
- buffers
- check_cond
- check_debug
- check_major_version
- check_micro_version
- check_minor_version
- check_mutex
+ buffers DATA
+ check_cond DATA
+ check_debug DATA
+ check_major_version DATA
+ check_micro_version DATA
+ check_minor_version DATA
+ check_mutex DATA
  clock_gettime
  gettimeofday
  gst_buffer_straw_get_buffer
@@ -10397,7 +10397,7 @@ EXPORTS
  gst_test_clock_wait_for_next_pending_id
  gst_test_clock_wait_for_pending_id_count
  localtime_r
- mutex
+ mutex DATA
  srunner_add_suite
  srunner_create
  srunner_failures
@@ -10420,18 +10420,18 @@ EXPORTS
  srunner_set_xml
  srunner_tap_fname
  srunner_xml_fname
- start_cond
+ start_cond DATA
  suite_add_tcase
  suite_create
  suite_tcase
- sync_cond
+ sync_cond DATA
  tcase_add_checked_fixture
  tcase_add_unchecked_fixture
  tcase_create
  tcase_fn_start
  tcase_set_tags
  tcase_set_timeout
- thread_list
+ thread_list DATA
  tr_ctx
  tr_lfile
  tr_lno
