@@ -8090,6 +8090,7 @@ EXPORTS
  gst_rtcp_packet_fb_get_fci
  gst_rtcp_packet_fb_get_fci_length
  gst_rtcp_packet_fb_get_fci_length_bytes
+ gst_rtcp_packet_fb_get_fci_length_bytes_full
  gst_rtcp_packet_fb_get_media_ssrc
  gst_rtcp_packet_fb_get_sender_ssrc
  gst_rtcp_packet_fb_get_type
