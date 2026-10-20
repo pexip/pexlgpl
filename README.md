@@ -23,6 +23,7 @@ https://github.com/pexip/libnice \
 https://github.com/pexip/os-libpng1.6 \
 https://github.com/pexip/os-openssl \
 https://github.com/pexip/os-nghttp2 \
+https://github.com/pexip/os-curl \
 https://github.com/pexip/os-pango1.0 \
 https://github.com/pexip/os-pcre2 \
 https://github.com/pexip/os-pixman \
