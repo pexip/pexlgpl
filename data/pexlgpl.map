@@ -43,6 +43,21 @@
     client_window_size_reached;
     amf_enc_*;
     amf_dec_*;
+    curl_*;
+    nghttp2_*;
+    SSL_*;
+    EVP_*;
+    X509_*;
+    BIO_*;
+    RSA_*;
+    EC_*;
+    ASN1_*;
+    CRYPTO_*;
+    ERR_*;
+    PEM_*;
+    HMAC_*;
+    OPENSSL_*;
+    OSSL_*;
   local:
     *;
 };
