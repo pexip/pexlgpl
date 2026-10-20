@@ -6,5 +6,6 @@ includedir=@includedir@
 Name: @NAME@
 Description: @NAME@
 Version: 1.0
+Requires: @REQUIRES@
 Libs: -L${libdir} @LIBS@
 Cflags: @CFLAGS@
