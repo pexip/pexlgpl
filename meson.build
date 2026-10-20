@@ -76,7 +76,8 @@ lgpl_deps_list = [
   [ ['pangocairo'], is_linux_x86 or static_build],
   [ ['libjpeg'], is_linux_x86 or static_build],
   [ ['zlib'],     false ],
-  [ ['openssl'],  false ],
+  [ ['openssl'] ],
+  [ ['libcurl'] ],
   [ ['gstreamer-rtsp-server-1.0'] ],
   [ ['gstreamer-check-1.0'] ],
   [ ['libpexrtmpserver'] ],
@@ -260,8 +261,6 @@ if static_build
     install: true)
 endif
 
-infile = static_build ? 'pexlgpl-static.pc.in' : 'pexlgpl-dynamic.pc.in'
-
 conf = configuration_data()
 conf.set('prefix', join_paths(get_option('prefix')))
 conf.set('exec_prefix', '${prefix}')
@@ -322,13 +321,19 @@ if static_build
   endforeach
 
   config_libs = '-lpexlgpl ' + config_libs
+  conf.set('REQUIRES', '')
   conf.set('LIBS', ' '.join(config_libs))
   conf.set('CFLAGS', ' '.join(config_cflags))
 else
+  # Dynamic build: there is no libpexlgpl to link against, the .pc file is pure
+  # metadata.  Forward the bundled modules via Requires: rather than flattening
+  # `pkg-config --libs` into Libs.
   conf.set('REQUIRES', config_requires)
+  conf.set('LIBS', '')
+  conf.set('CFLAGS', '')
 endif
 
-configure_file(input : infile,
+configure_file(input : 'pexlgpl.pc.in',
   output : 'pexlgpl.pc',
   configuration : conf,
   install_dir : pkg_install_dir)
