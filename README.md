@@ -21,7 +21,6 @@ https://github.com/pexip/os-libffi \
 https://github.com/pexip/os-libjpeg-turbo \
 https://github.com/pexip/libnice \
 https://github.com/pexip/os-libpng1.6 \
-https://github.com/pexip/librtmp \
 https://github.com/pexip/os-openssl \
 https://github.com/pexip/os-nghttp2 \
 https://github.com/pexip/os-pango1.0 \

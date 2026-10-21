@@ -126,7 +126,6 @@ gst_plugin_list = [
   [ ['gstsctp'] ],
   [ ['gstlibav'] ],
   [ ['gstspeex'], (not is_windows and not is_arm and not is_cross and not is_darwin) ],
-  [ ['gstrtmp'], (not is_windows and not is_emscripten) ],
   [ ['gstjpeg'], jpeg_dep.found() ],
   [ ['gstpng'], png_dep.found()  ],
   [ ['gstvpx'], (not is_arm and not is_cross) ],
