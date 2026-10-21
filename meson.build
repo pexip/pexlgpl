@@ -76,7 +76,9 @@ lgpl_deps_list = [
   [ ['pangocairo'], is_linux_x86 or static_build],
   [ ['libjpeg'], is_linux_x86 or static_build],
   [ ['zlib'],     false ],
-  [ ['libcurl'] ],
+  [ ['libcurl'], not is_windows ],
+  [ ['libcurl_a'], false, '>= 8.23' ],       # for windows
+  [ ['libcurl_a_debug'], false, '>= 8.23' ], # for windows-debug
   [ ['libnghttp2'] ],
   [ ['openssl'] ],
   [ ['gstreamer-rtsp-server-1.0'] ],
