@@ -78,7 +78,6 @@ lgpl_deps_list = [
   [ ['zlib'],     false ],
   [ ['openssl'] ],
   [ ['libcurl'] ],
-  [ ['libnghttp2'] ],
   [ ['gstreamer-rtsp-server-1.0'] ],
   [ ['gstreamer-check-1.0'] ],
   [ ['libpexrtmpserver'] ],
